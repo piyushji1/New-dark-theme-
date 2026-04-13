@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<style id="font-face-embed">
+/* ══════════════════════════════════════════════════
+   SELF-CONTAINED FONT SYSTEM - No CDN Required
+   Uses Inter via local system names, then fallbacks
+   that render identically on all platforms
+   ══════════════════════════════════════════════════ */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Inter Regular'), local('Inter-Regular'),
+         local('.AppleSystemUIFont'), local('Segoe UI'), 
+         local('Roboto'), local('Helvetica Neue');
+}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local('Inter Medium'), local('Inter-Medium'),
+         local('.AppleSystemUIFont'), local('Segoe UI'),
+         local('Roboto Medium'), local('Helvetica Neue');
+}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local('Inter SemiBold'), local('Inter-SemiBold'),
+         local('.AppleSystemUIFont-Semibold'), local('Segoe UI Semibold'),
+         local('Roboto Medium'), local('Helvetica Neue');
+}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Inter Bold'), local('Inter-Bold'),
+         local('.AppleSystemUIFont'), local('Segoe UI Bold'),
+         local('Roboto Bold'), local('Helvetica Neue Bold');
+}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: local('Inter ExtraBold'), local('Inter-ExtraBold'),
+         local('.AppleSystemUIFont'), local('Segoe UI Bold'),
+         local('Roboto Bold'), local('Helvetica Neue Bold');
+}
+</style>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#0B0E11"><meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Wealth | Building Future… Today</title>
+
+<style>
+
+
+/* ── FONT NORMALIZATION: Same font everywhere ── */
+:root {
+    color-scheme: dark;
+    --font: 'Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,
+            'Segoe UI','Helvetica Neue',Arial,sans-serif;
+    --font-mono: 'SF Mono','Fira Code','Cascadia Code',Consolas,monospace;
+}
+
+/* Force every single element to use the same font */
+html, body, h1, h2, h3, h4, h5, h6,
+p, span, div, a, button, input, textarea, select,
+label, li, td, th, caption, figcaption, blockquote,
+.hero-tag, .eyebrow, .section-title, .hero-title,
+.stat-num, .stat-lbl, .hs-item .num, .hs-item .lbl,
+.vs-num, .vs-lbl, .aic-stat-num, .aic-stat-lbl,
+.hcard-val, .cr-val, .dc-pct, .cta-title,
+.amfi-badge, .trust-chip, .founder-badge,
+.news-tag, .testi-tag, .aic-chip, .onb-chip,
+.aic-reg, .aic-location, .aic-brand, .aic-tagline,
+.service-title, .svc-title, .svc-desc,
+.link-title, .tool-title, .tool-desc,
+.nav-logo, .logo-text, nav a,
+.footer-col h5, .footer-col ul li a,
+.contact-detail .ci-lbl, .contact-detail .ci-val,
+.cf-title, .cf-sub, .calc-lbl, .calc-note,
+.testi-name, .testi-role, .testi-text,
+.founder-name, .founder-role, .founder-exp {
+    font-family: var(--font) !important;
+}
+
+/* Numbers specifically - tabular rendering */
+.stat-num, .hs-item .num, .vs-num, .aic-stat-num,
+.hcard-val, .cr-val, .dc-pct, .hero-title,
+.section-title, .cta-title, .aic-since span,
+#invested, #returns, #total, #sipAmtLabel,
+#sipRetLabel, #sipYrsLabel {
+    font-family: var(--font) !important;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+    -webkit-font-feature-settings: "tnum" 1;
+}
+
+/* ═══ CROSS-PLATFORM RESET ═══ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { cursor: pointer; font-family: inherit; }
+input, textarea, select { font-family: inherit; }
+/* Emoji rendering fix for all platforms */
+.emoji, [class*="icon"], [class*="badge"], [class*="chip"],
+[class*="btn"], [class*="tag"], [class*="stat"] {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+
+:root{--bg:#0B0E11;--card:#1E2329;--card2:#161A1F;--accent:#FCD535;--accent2:#F0B90B;--muted:#848E9C;--border:#2B3139;--green:#0ECB81;--red:#F6465D;--blue:#1E88E5;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:#fff;overflow-x:hidden;}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}* {scrollbar-width:thin;scrollbar-color:var(--border) var(--bg);}
+
+/* TICKER */
+.ticker-bar{background:#0d1117;border-bottom:1px solid var(--border);overflow:hidden;height:38px;display:flex;align-items:center;}
+.ticker-label{background:var(--accent);color:#000;font-size:0.68rem;font-weight:800;padding:0 14px;height:38px;display:flex;align-items:center;white-space:nowrap;letter-spacing:0.3px;flex-shrink:0;text-transform:uppercase;gap:6px;}
+.ticker-scroll{display:flex;gap:0;animation:ticker 55s linear infinite;white-space:nowrap;font-size:0.75rem;padding:0 1.5rem;}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.ticker-item{display:inline-flex;align-items:center;gap:0.4rem;padding:0 1.25rem;}
+.ticker-sep{color:var(--border);padding:0 0.25rem;}
+.ticker-name{color:var(--muted);font-weight:500;}
+.ticker-up{color:var(--green);font-weight:600;}
+.ticker-down{color:var(--red);font-weight:600;}
+
+/* NAVBAR */
+header{background:rgba(11,14,17,0.97);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;height:70px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{width:40px;height:40px;background:var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#000;box-shadow:0 0 20px rgba(252,213,53,0.3);}
+.logo-text{font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.3px;}
+.logo-text span{color:var(--accent);}
+nav{display:flex;align-items:center;gap:1.75rem;}
+nav>a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s;display:flex;align-items:center;gap:5px;}
+nav>a:hover{color:#fff;}
+.nav-divider{width:1px;height:28px;background:var(--border);}
+.nav-contact-info{display:flex;gap:1.25rem;font-size:0.72rem;}
+.nc-item{display:flex;align-items:center;gap:0.4rem;}
+.nc-item i{color:var(--accent);font-size:0.75rem;}
+.nc-item a{color:#ccc;text-decoration:none;transition:color 0.2s;}
+.nc-item a:hover{color:var(--accent);}
+.btn-primary{background:var(--accent);color:#000;border:none;padding:0.5rem 1.25rem;border-radius:7px;font-size:0.83rem;font-weight:700;cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
+.btn-primary:hover{background:var(--accent2);box-shadow:0 0 24px rgba(252,213,53,0.4);transform:translateY(-1px);}
+.btn-outline{background:transparent;color:#fff;border:1px solid var(--border);padding:0.5rem 1.25rem;border-radius:7px;font-size:0.83rem;font-weight:500;cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+
+/* HERO */
+.hero-section{position:relative;overflow:hidden;min-height:90vh;display:flex;align-items:center;background:linear-gradient(135deg,#0B0E11 0%,#0d1a26 40%,#0a1f1a 70%,#0B0E11 100%);}
+
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(252,213,53,0.06) 0%,transparent 60%);z-index:1;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(43,49,57,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(43,49,57,0.5) 1px,transparent 1px);background-size:64px 64px;opacity:0.4;z-index:1;}
+.hero-glow{position:absolute;top:15%;left:25%;width:700px;height:700px;background:radial-gradient(circle,rgba(252,213,53,0.07) 0%,transparent 70%);z-index:1;pointer-events:none;}
+.hero-content{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:80px 2rem;display:grid;grid-template-columns:1.15fr 0.85fr;gap:4rem;align-items:center;width:100%;}
+.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(252,213,53,0.1);border:1px solid rgba(252,213,53,0.3);color:var(--accent);font-size:0.72rem;font-weight:700;padding:0.4rem 1rem;border-radius:100px;margin-bottom:1.5rem;letter-spacing:0;text-transform:none;}
+.hero-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 1.8s ease-in-out infinite;}
+@keyframes pulse{0%,100%{-webkit-transform:scale(1);transform:scale(1);opacity:1;}50%{-webkit-transform:scale(1.4);transform:scale(1.4);opacity:0.6;}} @-webkit-keyframes pulse{0%,100%{-webkit-transform:scale(1);opacity:1;}50%{-webkit-transform:scale(1.4);opacity:0.6;}}
+.hero-title{font-size:clamp(2.4rem,4vw,3.8rem);font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:1.25rem;}
+.hero-title .accent{color:var(--accent);display:block;}
+.hero-desc{color:#9CA3AF;font-size:0.97rem;line-height:1.78;margin-bottom:2rem;max-width:490px;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+.hero-stats{display:flex;gap:2.5rem;padding-top:2rem;border-top:1px solid var(--border);}
+.hs-item .num{font-size:1.75rem;font-weight:800;color:var(--accent);letter-spacing:-0.5px;font-variant-numeric:tabular-nums;}
+.hs-item .lbl{font-size:0.68rem;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:0.2px;}
+
+/* HERO RIGHT */
+.hero-right{display:flex;flex-direction:column;gap:1rem;}
+.hcard{background:rgba(22,26,31,0.92);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:20px;padding:1.5rem;position:relative;overflow:hidden;}
+.hcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--green));}
+.hcard-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;}
+.hcard-title{font-size:0.75rem;color:var(--muted);font-weight:500;display:flex;align-items:center;gap:5px;}
+.hcard-badge{background:rgba(14,203,129,0.15);color:var(--green);font-size:0.68rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:100px;display:flex;align-items:center;gap:4px;}
+.mini-bars{display:flex;align-items:flex-end;gap:5px;height:64px;}
+.mbar{border-radius:4px 4px 0 0;opacity:0.85;transition:opacity 0.2s;min-width:16px;}
+.mbar:hover{opacity:1;}
+.hcard-val{font-size:1.85rem;font-weight:800;letter-spacing:0;margin-top:0.6rem;font-variant-numeric:tabular-nums;}
+.hcard-sub{font-size:0.72rem;color:var(--muted);margin-top:3px;}
+.hero-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.hmc{background:rgba(22,26,31,0.92);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:1.1rem;}
+.hmc-icon{font-size:1.4rem;margin-bottom:6px;}
+.hmc-lbl{font-size:0.68rem;color:var(--muted);margin-bottom:3px;}
+.hmc-val{font-size:1.05rem;font-weight:700;}
+.hmc-val.g{color:var(--green);}
+.hmc-val.y{color:var(--accent);}
+.hmc-trend{font-size:0.68rem;margin-top:3px;color:var(--muted);}
+
+/* STATS BAR */
+.stats-bar{background:linear-gradient(180deg,#0d1117,#161A1F);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.stats-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
+.stat-item{padding:2rem 1.5rem;text-align:center;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background 0.3s;}
+.stat-item:last-child{border-right:none;}
+.stat-item:hover{background:rgba(252,213,53,0.04);}
+.stat-item::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--accent);transition:width 0.4s;}
+.stat-item:hover::after{width:70%;}
+.stat-icon{font-size:1.6rem;margin-bottom:0.5rem;display:block;}
+.stat-num{font-size:2.3rem;font-weight:800;color:var(--accent);letter-spacing:-0.5px;line-height:1;font-variant-numeric:tabular-nums;}
+.stat-lbl{font-size:0.7rem;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:0.3px;font-weight:500;}
+
+/* SECTIONS */
+section{padding:90px 2rem;}
+.section-inner{max-width:1280px;margin:0 auto;}
+.section-header{margin-bottom:3.5rem;}
+.eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(252,213,53,0.08);border:1px solid rgba(252,213,53,0.18);color:var(--accent);font-size:0.68rem;font-weight:700;padding:0.3rem 0.85rem;border-radius:100px;margin-bottom:0.9rem;letter-spacing:0;text-transform:none;}
+.section-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spacing:-0.8px;line-height:1.2;}
+.section-sub{color:var(--muted);margin-top:0.6rem;font-size:0.88rem;line-height:1.65;max-width:580px;}
+.section-line{width:50px;height:3px;background:var(--accent);border-radius:2px;margin-top:1rem;}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-media{position:relative;}
+
+
+.about-float{position:relative;display:inline-block;margin-top:1rem;background:var(--accent);color:#000;padding:1rem 1.2rem;border-radius:16px;font-weight:800;font-size:0.88rem;box-shadow:0 12px 30px rgba(252,213,53,0.35);z-index:2;line-height:1.3;}
+.about-float .af-small{font-size:0.62rem;font-weight:600;color:rgba(0,0,0,0.55);display:block;margin-top:2px;}
+.trust-row{display:flex;gap:0.75rem;margin-top:2.5rem;flex-wrap:wrap;}
+.trust-chip{display:flex;align-items:center;gap:5px;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:0.35rem 0.85rem;font-size:0.72rem;font-weight:500;color:#ccc;}
+.trust-chip i{color:var(--accent);font-size:0.65rem;}
+.about-content p{color:#9CA3AF;line-height:1.85;font-size:0.92rem;margin-bottom:1.2rem;}
+.highlight-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.5rem 0;}
+.hi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1rem;display:flex;align-items:center;gap:0.7rem;transition:border-color 0.2s;}
+.hi:hover{border-color:rgba(252,213,53,0.3);}
+.hi-icon{width:36px;height:36px;background:rgba(252,213,53,0.1);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.hi-t{font-size:0.8rem;font-weight:600;}
+.hi-s{font-size:0.7rem;color:var(--muted);}
+.about-reg{background:var(--card2);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px;padding:1rem 1.25rem;margin-top:1.5rem;font-size:0.75rem;color:var(--muted);line-height:1.7;}
+.about-reg strong{color:#fff;display:block;margin-bottom:0.25rem;}
+.about-reg span{color:var(--accent);font-weight:600;}
+.amfi-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(14,203,129,0.1);border:1px solid rgba(14,203,129,0.3);color:var(--green);font-size:0.7rem;font-weight:700;padding:0.35rem 0.85rem;border-radius:100px;margin-top:1rem;letter-spacing:0;}
+
+/* SERVICES */
+.services-section{background:var(--card2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.svc-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.35s;cursor:pointer;}
+.svc-card:hover{border-color:rgba(252,213,53,0.45);transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,0.5);}
+.svc-img{position:relative;height:165px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.svc-img img{display:none;}
+.svc-img-fade{display:none;}
+.svc-badge{font-size:3rem;line-height:1;z-index:1;}
+.svc-img.c1{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);}
+.svc-img.c2{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);}
+.svc-img.c3{background:linear-gradient(135deg,#0d1b2a,#1b263b,#415a77);}
+.svc-img.c4{background:linear-gradient(135deg,#1b1b2f,#2e2e4d,#393e6f);}
+.svc-img.c5{background:linear-gradient(135deg,#0a2342,#1a3a5c,#126872);}
+.svc-img.c6{background:linear-gradient(135deg,#1c0a2e,#2d1b4e,#4a2080);}
+.svc-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to top,var(--card),transparent);}
+.svc-body{padding:1.4rem;}
+.svc-title{font-size:0.97rem;font-weight:700;margin-bottom:0.45rem;}
+.svc-desc{color:var(--muted);font-size:0.79rem;line-height:1.65;margin-bottom:0.9rem;}
+.svc-link{display:inline-flex;align-items:center;gap:5px;color:var(--accent);font-size:0.78rem;font-weight:600;text-decoration:none;transition:gap 0.2s;}
+.svc-link:hover{gap:10px;}
+
+/* TOOLS */
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;text-decoration:none;transition:all 0.35s;display:flex;flex-direction:column;}
+.tool-card:hover{transform:translateY(-8px);border-color:rgba(252,213,53,0.4);box-shadow:0 30px 60px rgba(0,0,0,0.5);}
+.tool-img{position:relative;height:130px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+.tool-img img{display:none;}
+.tool-img-fade{display:none;}
+.tool-img.t1{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);}
+.tool-img.t2{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);}
+.tool-img.t3{background:linear-gradient(135deg,#0d1b2a,#1b263b,#415a77);}
+.tool-img.t4{background:linear-gradient(135deg,#1b1b2f,#2e2e4d,#393e6f);}
+.tool-img.t5{background:linear-gradient(135deg,#0a2342,#1a3a5c,#126872);}
+.tool-img.t6{background:linear-gradient(135deg,#1c0a2e,#2d1b4e,#4a2080);}
+.tool-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50px;background:linear-gradient(to top,var(--card),transparent);}
+.tool-body{padding:1.35rem;flex:1;display:flex;flex-direction:column;gap:0.4rem;}
+.tool-icon-row{display:flex;align-items:center;gap:0.7rem;margin-bottom:0.2rem;}
+.tool-box{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.tool-box.y{background:rgba(252,213,53,0.1);border:1px solid rgba(252,213,53,0.18);}
+.tool-box.g{background:rgba(14,203,129,0.1);border:1px solid rgba(14,203,129,0.18);}
+.tool-box.b{background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.18);}
+.tool-title{font-size:0.92rem;font-weight:700;}
+.tool-title.y{color:var(--accent);}
+.tool-title.g{color:var(--green);}
+.tool-title.b{color:#60A5FA;}
+.tool-desc{color:var(--muted);font-size:0.78rem;line-height:1.55;flex:1;}
+.tool-arrow{display:inline-flex;align-items:center;gap:5px;color:var(--muted);font-size:0.72rem;margin-top:0.4rem;transition:all 0.2s;}
+.tool-card:hover .tool-arrow{color:var(--accent);gap:10px;}
+
+/* SIP CALC */
+.calc-section{background:var(--card2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.calc-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:4rem;align-items:start;}
+.calc-card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:2.2rem;position:relative;overflow:hidden;}
+.calc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--accent),var(--green));}
+.calc-field{margin-bottom:1.7rem;}
+.calc-lbl{font-size:0.8rem;color:var(--muted);font-weight:500;margin-bottom:0.6rem;display:flex;justify-content:space-between;align-items:center;}
+.calc-lbl .cv{color:var(--accent);font-weight:700;font-size:0.85rem;}
+input[type=range]{-webkit-appearance:none;width:100%;height:5px;background:var(--border);border-radius:3px;outline:none;cursor:pointer;}
+
+/* Range input cross-browser */
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:3px solid var(--bg);}
+input[type=range]::-ms-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;}
+input[type=range]::-moz-range-track{height:5px;background:var(--border);border-radius:3px;}
+input[type=range]::-ms-track{height:5px;background:var(--border);border-radius:3px;border-color:transparent;color:transparent;}
+
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:3px solid var(--bg);box-shadow:0 0 10px rgba(252,213,53,0.4);}
+.calc-result{background:linear-gradient(135deg,rgba(252,213,53,0.04),rgba(14,203,129,0.02));border:1px solid rgba(252,213,53,0.18);border-radius:18px;padding:1.75rem;margin-top:1.75rem;}
+.cr-row{display:flex;justify-content:space-between;align-items:center;padding:0.8rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;}
+.cr-row:last-child{border-bottom:none;}
+.cr-lbl{color:var(--muted);display:flex;align-items:center;gap:6px;}
+.cr-lbl i{color:var(--accent);font-size:0.8rem;}
+.cr-val{font-weight:600;}
+.cr-total{background:rgba(252,213,53,0.06);border-radius:12px;padding:0.9rem 1rem;margin-top:0.5rem;display:flex;justify-content:space-between;align-items:center;}
+.cr-total .cr-lbl{color:#fff;font-weight:700;font-size:0.95rem;}
+.cr-total .cr-val{color:var(--accent);font-size:1.35rem;font-weight:800;letter-spacing:0;font-variant-numeric:tabular-nums;}
+.calc-note{font-size:0.69rem;color:var(--muted);margin-top:1.2rem;line-height:1.6;padding-top:1rem;border-top:1px solid var(--border);}
+.donut-area{display:flex;flex-direction:column;align-items:center;margin-bottom:1.75rem;}
+.donut-chart{position:relative;width:190px;height:190px;margin-bottom:1rem;}
+.donut-chart svg{transform:rotate(-90deg);}
+.donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.dc-pct{font-size:1.5rem;font-weight:800;color:var(--accent);}
+.dc-lbl{font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;}
+.donut-legend{display:flex;gap:1.5rem;}
+.dl{display:flex;align-items:center;gap:6px;font-size:0.75rem;color:var(--muted);}
+.dl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.sip-reasons{display:flex;flex-direction:column;gap:0.8rem;}
+.sir{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:1rem 1.15rem;display:flex;gap:0.9rem;align-items:flex-start;transition:border-color 0.2s;}
+.sir:hover{border-color:rgba(252,213,53,0.25);}
+.sir-icon{width:38px;height:38px;border-radius:9px;background:rgba(252,213,53,0.1);display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+.sir-t{font-size:0.82rem;font-weight:600;margin-bottom:2px;}
+.sir-d{font-size:0.75rem;color:var(--muted);line-height:1.5;}
+
+/* NEWS */
+.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;}
+.news-feat{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.3s;cursor:pointer;}
+.news-feat:hover{border-color:rgba(252,213,53,0.3);box-shadow:0 30px 60px rgba(0,0,0,0.4);}
+.news-feat-img{position:relative;height:270px;overflow:hidden;background:#0f2027;}
+.news-feat-img img{display:none;}
+.news-feat:hover .news-feat-img img{display:none;}
+.news-feat-img .nf-fade{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,35,41,1) 0%,transparent 50%);}
+.news-body{padding:1.5rem;}
+.news-tag{display:inline-flex;align-items:center;gap:4px;font-size:0.66rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.3px;margin-bottom:0.45rem;}
+.news-ttl{font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:0.45rem;}
+.news-ttl.lg{font-size:1.15rem;}
+.news-desc{color:var(--muted);font-size:0.8rem;line-height:1.6;}
+.news-meta{display:flex;align-items:center;gap:1rem;margin-top:0.9rem;font-size:0.7rem;color:var(--muted);}
+.news-sidebar{display:flex;flex-direction:column;gap:1.2rem;}
+.news-sm{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;cursor:pointer;display:grid;grid-template-columns:95px 1fr;}
+.news-sm:hover{border-color:rgba(252,213,53,0.25);}
+.news-sm img{width:100%;height:100%;object-fit:cover;filter:brightness(0.72);}
+.news-sm-body{padding:0.9rem;}
+
+/* VISION */
+.vision-section{background:var(--card2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.vision-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:center;}
+.founder-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:2.5rem;text-align:center;position:relative;overflow:hidden;}
+.founder-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--accent),var(--green),var(--accent));}
+.founder-glow{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:220px;height:220px;background:radial-gradient(circle,rgba(252,213,53,0.07),transparent 70%);pointer-events:none;}
+.founder-av-wrap{position:relative;display:inline-block;margin-bottom:1.2rem;}
+.founder-av{width:128px;height:128px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 0 0 6px rgba(252,213,53,0.1),0 0 28px rgba(252,213,53,0.2);}
+.founder-check{position:absolute;bottom:4px;right:4px;background:var(--accent);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;border:2px solid var(--card);}
+.founder-check i{font-size:0.7rem;color:#000;}
+.founder-name{font-size:1.2rem;font-weight:800;margin-bottom:0.3rem;}
+.founder-role{color:var(--accent);font-size:0.83rem;font-weight:600;margin-bottom:0.25rem;}
+.founder-exp{color:var(--muted);font-size:0.76rem;}
+.founder-badges{display:flex;gap:0.5rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap;}
+.fb{background:rgba(252,213,53,0.08);border:1px solid rgba(252,213,53,0.16);color:var(--accent);font-size:0.66rem;padding:0.28rem 0.7rem;border-radius:100px;font-weight:600;}
+.founder-socials{display:flex;gap:0.7rem;justify-content:center;margin-top:1.4rem;}
+.fsoc{width:36px;height:36px;border-radius:9px;background:var(--card2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.85rem;text-decoration:none;transition:all 0.2s;}
+.fsoc:hover{border-color:var(--accent);color:var(--accent);}
+.vision-quote{font-size:1.02rem;line-height:1.88;color:#C0C7D0;border-left:3px solid var(--accent);padding-left:1.5rem;font-style:italic;margin:1.5rem 0;position:relative;}
+.vision-quote::before{content:'\201C';position:absolute;top:-18px;left:8px;font-size:4rem;color:rgba(252,213,53,0.12);font-family:Georgia,serif;line-height:1;}
+.vision-author{display:flex;align-items:center;gap:0.75rem;color:var(--accent);font-weight:700;font-size:0.88rem;}
+.vision-author::before{content:'';width:38px;height:2px;background:var(--accent);}
+.vision-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.5rem;}
+.vs{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:1.2rem;text-align:center;transition:border-color 0.2s;}
+.vs:hover{border-color:rgba(252,213,53,0.3);}
+.vs-num{font-size:1.7rem;font-weight:800;letter-spacing:0;font-variant-numeric:tabular-nums;}
+.vs-lbl{font-size:0.68rem;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px;}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+.testi-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.9rem;transition:all 0.3s;position:relative;overflow:hidden;}
+.testi-card::before{content:'\201C';position:absolute;top:8px;right:18px;font-size:5rem;color:rgba(252,213,53,0.07);font-family:Georgia,serif;line-height:1;}
+.testi-card:hover{border-color:rgba(252,213,53,0.3);transform:translateY(-5px);box-shadow:0 20px 45px rgba(0,0,0,0.4);}
+.testi-header{display:flex;align-items:center;gap:0.9rem;margin-bottom:1.1rem;}
+.testi-av{width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid var(--border);}
+.testi-name{font-weight:700;font-size:0.93rem;}
+.testi-role{font-size:0.7rem;color:var(--muted);margin-top:2px;display:flex;align-items:center;gap:4px;}
+.testi-stars{color:var(--accent);font-size:0.8rem;margin-top:3px;letter-spacing:1.5px;}
+.testi-text{color:#9CA3AF;font-size:0.83rem;line-height:1.75;}
+.testi-tag{display:inline-flex;align-items:center;gap:4px;background:rgba(252,213,53,0.07);color:var(--accent);font-size:0.66rem;font-weight:600;padding:0.22rem 0.65rem;border-radius:100px;margin-top:0.9rem;}
+
+/* CONTACT */
+.contact-section{background:var(--card2);border-top:1px solid var(--border);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start;}
+.ci{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.6rem;}
+.ci-icon{width:46px;height:46px;border-radius:13px;background:rgba(252,213,53,0.1);border:1px solid rgba(252,213,53,0.25);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.ci-lbl{color:var(--muted);font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:4px;}
+.ci-val{font-size:0.88rem;font-weight:500;line-height:1.55;}
+.ci-val a{color:#fff;text-decoration:none;transition:color 0.2s;}
+.ci-val a:hover{color:var(--accent);}
+
+.contact-form{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:2.2rem;position:relative;overflow:hidden;}
+.contact-form::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--accent),var(--green));}
+.cf-title{font-size:1.1rem;font-weight:700;margin-bottom:0.35rem;}
+.cf-sub{font-size:0.78rem;color:var(--muted);margin-bottom:1.7rem;display:flex;align-items:center;gap:5px;}
+.cf-sub i{color:var(--accent);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.fg{margin-bottom:1rem;}
+.fg label{display:flex;align-items:center;gap:4px;font-size:0.76rem;color:var(--muted);margin-bottom:0.42rem;font-weight:500;}
+.fg label i{font-size:0.68rem;color:var(--accent);}
+.fg input,.fg textarea,.fg select{width:100%;background:var(--bg);border:1px solid var(--border);color:#fff;padding:0.78rem 1rem;border-radius:9px;font-family:'Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;font-size:0.83rem;outline:none;transition:border-color 0.2s,box-shadow 0.2s;}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(252,213,53,0.08);}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(132,142,156,0.45);}
+.fg textarea{resize:vertical;min-height:108px;}
+.fg select option{background:var(--card);}
+.app-btns{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1rem;}
+.app-btn{display:flex;align-items:center;gap:0.55rem;background:var(--card);border:1px solid var(--border);color:#fff;padding:0.55rem 1rem;border-radius:10px;font-size:0.75rem;text-decoration:none;transition:all 0.2s;}
+.app-btn:hover{border-color:var(--accent);color:var(--accent);}
+/* ABOUT INFO CARD */
+.about-info-card{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.5);position:relative;}
+.about-info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--green),var(--accent));}
+.aic-header{display:flex;align-items:center;gap:1rem;padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--border);}
+.aic-logo-box{width:48px;height:48px;background:var(--accent);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:#000;flex-shrink:0;}
+.aic-brand{font-size:1.1rem;font-weight:800;color:#fff;}
+.aic-tagline{font-size:0.72rem;color:var(--muted);margin-top:2px;}
+.aic-since{margin-left:auto;text-align:center;font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;line-height:1.4;}
+.aic-since span{display:block;font-size:1.4rem;font-weight:800;color:var(--accent);letter-spacing:0;}
+.aic-mission{font-size:0.82rem;color:#9CA3AF;line-height:1.75;font-style:italic;padding:1rem 1.5rem;border-bottom:1px solid var(--border);border-left:3px solid var(--accent);margin:0 1.5rem 0;background:rgba(252,213,53,0.03);border-radius:0 8px 8px 0;}
+.aic-stats{display:flex;align-items:center;justify-content:space-around;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);gap:0.5rem;}
+.aic-stat{text-align:center;}
+.aic-stat-num{font-size:1.35rem;font-weight:800;color:var(--accent);letter-spacing:0;font-variant-numeric:tabular-nums;}
+.aic-stat-lbl{font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;}
+.aic-stat-div{width:1px;height:32px;background:var(--border);}
+.aic-services{padding:1.1rem 1.5rem;border-bottom:1px solid var(--border);}
+.aic-svc-title{font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;font-weight:700;margin-bottom:0.65rem;}
+.aic-svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;}
+.aic-svc-item{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:0.5rem 0.6rem;font-size:0.73rem;color:#ccc;display:flex;align-items:center;gap:0.4rem;transition:border-color 0.2s;}
+.aic-svc-item:hover{border-color:rgba(252,213,53,0.3);color:#fff;}
+.aic-clients{padding:1.1rem 1.5rem;border-bottom:1px solid var(--border);}
+.aic-client-chips{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.5rem;}
+.aic-chip{background:rgba(252,213,53,0.08);border:1px solid rgba(252,213,53,0.2);color:var(--accent);font-size:0.72rem;font-weight:600;padding:0.3rem 0.8rem;border-radius:100px;}
+.aic-footer{display:flex;justify-content:space-between;align-items:center;padding:0.9rem 1.5rem;font-size:0.7rem;}
+.aic-reg{background:rgba(14,203,129,0.1);border:1px solid rgba(14,203,129,0.25);color:var(--green);padding:0.25rem 0.7rem;border-radius:100px;font-weight:600;letter-spacing:0;}
+.aic-location{color:var(--muted);}
+
+.office-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.4rem;margin-top:1.5rem;overflow:hidden;position:relative;}
+.office-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--green));}
+.office-card-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.1rem;}
+.office-map-pin{width:42px;height:42px;background:rgba(252,213,53,0.12);border:1px solid rgba(252,213,53,0.25);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.office-card-title{font-size:0.92rem;font-weight:700;color:#fff;}
+.office-card-sub{font-size:0.72rem;color:var(--muted);margin-top:2px;}
+.office-directions-btn{margin-left:auto;background:rgba(252,213,53,0.1);border:1px solid rgba(252,213,53,0.3);color:var(--accent);font-size:0.72rem;font-weight:600;padding:0.35rem 0.85rem;border-radius:100px;text-decoration:none;white-space:nowrap;transition:all 0.2s;}
+.office-directions-btn:hover{background:var(--accent);color:#000;}
+.office-details-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.1rem;}
+.office-detail-item{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.65rem 0.85rem;}
+.odi-label{font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:3px;font-weight:600;}
+.odi-value{font-size:0.78rem;color:#fff;font-weight:500;}
+.onb-title{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:0.5rem;font-weight:600;}
+.onb-chips{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.onb-chip{background:var(--bg);border:1px solid var(--border);color:#ccc;font-size:0.7rem;padding:0.28rem 0.7rem;border-radius:100px;}
+
+
+/* CTA */
+.cta-section{position:relative;overflow:hidden;padding:100px 2rem;text-align:center;background:var(--bg);}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(252,213,53,0.09) 0%,transparent 65%);}
+.cta-section::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(43,49,57,0.35) 1px,transparent 1px),linear-gradient(90deg,rgba(43,49,57,0.35) 1px,transparent 1px);background-size:72px 72px;}
+.cta-inner{position:relative;z-index:2;}
+.cta-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-0.5px;margin-bottom:1rem;}
+.cta-sub{color:var(--muted);font-size:0.97rem;margin-bottom:2.5rem;}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+/* FOOTER */
+footer{background:var(--card2);border-top:1px solid var(--border);}
+.footer-inner{max-width:1280px;margin:0 auto;padding:3.5rem 2rem;display:grid;grid-template-columns:2.2fr 1fr 1fr 1.5fr;gap:3rem;}
+.footer-brand p{color:var(--muted);font-size:0.79rem;line-height:1.78;margin:1rem 0;max-width:275px;}
+.footer-col h5{font-size:0.73rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:1.2rem;color:#fff;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:0.55rem;}
+.footer-col ul li a{color:var(--muted);text-decoration:none;font-size:0.79rem;transition:color 0.2s;display:flex;align-items:center;gap:5px;}
+.footer-col ul li a i{font-size:0.6rem;color:var(--border);transition:color 0.2s;}
+.footer-col ul li a:hover{color:var(--accent);}
+.footer-col ul li a:hover i{color:var(--accent);}
+.footer-contact .fi{display:flex;gap:0.7rem;align-items:flex-start;margin-bottom:0.8rem;font-size:0.78rem;color:var(--muted);}
+.footer-contact .fi i{color:var(--accent);font-size:0.82rem;margin-top:2px;flex-shrink:0;}
+.footer-social{display:flex;gap:0.6rem;margin-top:1.2rem;}
+.fsb{width:33px;height:33px;border-radius:8px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.78rem;text-decoration:none;transition:all 0.2s;}
+.fsb:hover{border-color:var(--accent);color:var(--accent);background:rgba(252,213,53,0.07);}
+.footer-bottom{border-top:1px solid var(--border);padding:1.2rem 2rem;max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:0.71rem;color:var(--muted);flex-wrap:wrap;gap:0.5rem;}
+.footer-bottom a{color:var(--accent);text-decoration:none;}
+.risk-box{background:rgba(246,70,93,0.04);border:1px solid rgba(246,70,93,0.14);border-radius:11px;padding:1.2rem 1.75rem;font-size:0.69rem;color:#6B7280;line-height:1.72;margin:0 2rem;max-width:1280px;margin-left:auto;margin-right:auto;}
+.risk-box strong{color:#F6465D;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{opacity:0;animation:fadeUp 0.7s ease forwards;}
+.d1{animation-delay:0.1s;}.d2{animation-delay:0.25s;}.d3{animation-delay:0.4s;}
+
+@media(max-width:1024px){
+ .hero-content{grid-template-columns:1fr;}
+ .hero-right{display:none;}
+ .about-grid,.vision-grid,.calc-grid,.contact-grid{grid-template-columns:1fr;gap:3rem;}
+ .services-grid,.tools-grid{grid-template-columns:1fr 1fr;}
+ .stats-grid{grid-template-columns:repeat(2,1fr);}
+ .testi-grid{grid-template-columns:1fr;}
+ .footer-inner{grid-template-columns:1fr 1fr;gap:2.5rem;}
+ nav>a,.nav-divider,.nav-contact-info{display:none;}
+ .form-row{grid-template-columns:1fr;}
+ .news-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+ .services-grid,.tools-grid{grid-template-columns:1fr;}
+ .footer-inner{grid-template-columns:1fr;}
+ .hero-stats{flex-wrap:wrap;gap:1.5rem;}
+ section{padding:60px 1.25rem;}
+}
+
+
+/* Global number rendering - prevents letter-spacing on numbers */
+.stat-num, .hs-item .num, .vs-num, .aic-stat-num, .hcard-val,
+.cr-val, .dc-pct, .hero-title, .section-title, .cta-title,
+.aic-since span, .founder-name {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0 !important;
+    font-feature-settings: "tnum";
+}
+/* Prevent letter-spacing from affecting numbers in badges/chips */
+.hero-tag, .eyebrow, .amfi-badge, .aic-reg, .trust-chip,
+.founder-badge, .section-eyebrow, .onb-chip, .aic-chip {
+    letter-spacing: 0 !important;
+}
+
+/* Consistent font for ALL text elements */
+* {
+    font-family: 'Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+}
+/* Emoji-only elements - only override where pure emoji needed */
+.svc-badge, .tool-img, .ci-icon, .stat-icon, .hmc-icon,
+.sir-icon, .swc-icon, .office-map-pin, .aic-svc-item > span:first-child {
+    font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",
+    'Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+}
+
+
+/* ── SVG ICON STYLES ── */
+.fsb, .fsoc { display:flex; align-items:center; justify-content:center; }
+.fsb svg, .fsoc svg { display:block; color:inherit; }
+.app-btn { display:flex; align-items:center; gap:0.55rem; }
+.app-btn svg { flex-shrink:0; }
+
+
+/* ══ FORCE DARK BACKGROUNDS ON ALL SECTIONS ══ */
+html, body {
+    background-color: var(--bg) !important;
+}
+section {
+    background-color: var(--bg);
+}
+/* Alternate sections get slightly lighter bg for visual rhythm */
+.services-section { background: var(--card2) !important; }
+.calc-section     { background: var(--card2) !important; }
+.vision-section   { background: var(--card2) !important; }
+.contact-section  { background: var(--card2) !important; }
+.hero-section     { background: linear-gradient(135deg,#0B0E11 0%,#0d1a26 40%,#0a1f1a 70%,#0B0E11 100%) !important; }
+.cta-section      { background: var(--bg) !important; }
+footer            { background: var(--card2) !important; }
+
+/* Stats bar */
+.stats-bar { background: linear-gradient(180deg,#0d1117,#161A1F) !important; }
+
+/* Ticker */
+.ticker-bar { background: #0d1117 !important; }
+
+/* No element should ever be white */
+div, section, article, aside, main, header, footer, nav {
+    background-color: transparent;
+}
+
+/* Card backgrounds */
+.testi-card   { background: var(--card) !important; }
+.service-card, .svc-card { background: var(--card) !important; }
+.link-card, .tool-card   { background: var(--card) !important; }
+.news-feat, .news-sm     { background: var(--card) !important; }
+.hcard, .hmc             { background: rgba(22,26,31,0.95) !important; }
+.calc-card               { background: var(--card) !important; }
+.contact-form            { background: var(--card) !important; }
+.founder-card            { background: var(--card) !important; }
+.about-info-card         { background: var(--card) !important; }
+.office-card             { background: var(--card) !important; }
+
+/* Section borders */
+#about, #tools, #news, 
+section[style*="border-top"] {
+    border-top: 1px solid var(--border);
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- LIVE TICKER -->
+
+<div class="ticker-bar">
+ <div class="ticker-label">● LIVE</div>
+ <div style="overflow:hidden;flex:1;">
+ <div class="ticker-scroll">
+ <span class="ticker-item"><span class="ticker-name">SENSEX</span><span class="ticker-up">▲ 73,852.96 +0.42%</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">NIFTY 50</span><span class="ticker-up">▲ 22,403.85 +0.38%</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">NIFTY BANK</span><span class="ticker-down">▼ 47,821.20 -0.15%</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">NIFTY MID100</span><span class="ticker-up">▲ 45,210.60 +0.62%</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">USD/INR</span><span class="ticker-up">▲ ₹83.42</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">GOLD</span><span class="ticker-up">▲ ₹72,450/10g</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">SILVER</span><span class="ticker-up">▲ ₹86,200/kg</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">G-SEC 10Y</span><span class="ticker-down">▼ 7.08%</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">SENSEX</span><span class="ticker-up">▲ 73,852.96 +0.42%</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">NIFTY 50</span><span class="ticker-up">▲ 22,403.85 +0.38%</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">NIFTY BANK</span><span class="ticker-down">▼ 47,821.20 -0.15%</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">NIFTY MID100</span><span class="ticker-up">▲ 45,210.60 +0.62%</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">USD/INR</span><span class="ticker-up">▲ ₹83.42</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">GOLD</span><span class="ticker-up">▲ ₹72,450/10g</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">SILVER</span><span class="ticker-up">▲ ₹86,200/kg</span></span><span class="ticker-sep">•</span>
+ <span class="ticker-item"><span class="ticker-name">G-SEC 10Y</span><span class="ticker-down">▼ 7.08%</span></span>
+ </div>
+ </div>
+</div>
+
+<!-- NAVBAR -->
+
+<header>
+ <div class="nav-inner">
+ <a href="#" class="nav-logo">
+ <div class="logo-icon">FW</div>
+ <span class="logo-text">Future <span>Wealth</span></span>
+ </a>
+ <nav>
+ <a href="#about">About Us</a>
+ <a href="#services">Services</a>
+ <a href="#calculator">SIP Calculator</a>
+ <a href="#news">News</a>
+ <a href="#contact">Contact</a>
+ <div class="nav-divider"></div>
+ <div class="nav-contact-info">
+ <div class="nc-item"><a href="/cdn-cgi/l/email-protection#ee87808881ae889b9a9b9c8b998b8f829a86c08d81c08780"><span class="__cf_email__" data-cfemail="a6cfc8c0c9e6c0d3d2d3d4c3d1c3c7cad2ce88c5c988cfc8">[email&#160;protected]</span></a></div>
+ <div class="nc-item"><a href="tel:+919898348976">+91 98983 48976</a></div>
+ </div>
+ </nav>
+ <a href="https://futurewealth.investwell.app/app/#/login" target="_blank" class="btn-primary">Client Login</a>
+ </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero-section">
+ <div class="hero-overlay"></div>
+ <div class="hero-grid"></div>
+ <div class="hero-glow"></div>
+ <div class="hero-content">
+ <div class="fade-up">
+ <div class="hero-tag"><span class="hero-dot"></span>AMFI Registered · ARN-98691 · Est. 2014</div>
+ <h1 class="hero-title">Building Future<span class="accent">…Today</span></h1>
+ <p class="hero-desc">A trusted AMFI-registered financial distributor serving Corporate, NRI, HNI & Retail clients across India. Mutual Funds, Insurance, Govt. Bonds, SIP & Tax Planning — all under one roof.</p>
+ <div class="hero-btns">
+ <a href="#contact" class="btn-primary" style="padding:0.78rem 1.8rem;font-size:0.93rem;">Book Free Consultation</a>
+ <a href="#services" class="btn-outline" style="padding:0.78rem 1.8rem;font-size:0.93rem;">&#8595; Explore Services</a>
+ <a href="https://wa.me/919898348976" target="_blank" class="btn-outline" style="padding:0.78rem 1.5rem;color:#25D366;border-color:#25D366;font-size:0.93rem;">WhatsApp</a>
+ </div>
+ <div class="hero-stats">
+ <div class="hs-item"><div class="num">500+</div><div class="lbl">Happy Clients</div></div>
+ <div class="hs-item"><div class="num">₹50Cr+</div><div class="lbl">Assets Managed</div></div>
+ <div class="hs-item"><div class="num">17+</div><div class="lbl">Years Exp.</div></div>
+ <div class="hs-item"><div class="num">6+</div><div class="lbl">Product Types</div></div>
+ </div>
+ </div>
+ <div class="hero-right fade-up d2">
+ <div class="hcard">
+ <div class="hcard-header">
+ <span class="hcard-title">📈 SIP Portfolio Growth (10 yrs)</span>
+ <span class="hcard-badge">▲ +12.4% CAGR</span>
+ </div>
+ <div class="mini-bars">
+ <div class="mbar" style="height:22%;background:var(--muted);"></div>
+ <div class="mbar" style="height:33%;background:var(--muted);"></div>
+ <div class="mbar" style="height:41%;background:var(--accent);"></div>
+ <div class="mbar" style="height:49%;background:var(--accent);"></div>
+ <div class="mbar" style="height:57%;background:var(--accent);"></div>
+ <div class="mbar" style="height:64%;background:var(--green);"></div>
+ <div class="mbar" style="height:73%;background:var(--green);"></div>
+ <div class="mbar" style="height:82%;background:var(--green);"></div>
+ <div class="mbar" style="height:91%;background:var(--green);"></div>
+ <div class="mbar" style="height:100%;background:var(--green);"></div>
+ </div>
+ <div class="hcard-val" style="color:var(--green);">₹23.5 Lakhs</div>
+ <div class="hcard-sub">On ₹10,000/month · 12% returns · 10 Years</div>
+ </div>
+ <div class="hero-mini-grid">
+ <div class="hmc"><div class="hmc-icon">📈</div><div class="hmc-lbl">NIFTY 50 (1Y)</div><div class="hmc-val g">+24.6%</div><div class="hmc-trend" style="color:var(--green);"> Strong bull run</div></div>
+ <div class="hmc"><div class="hmc-icon">🥇</div><div class="hmc-lbl">Gold (1Y)</div><div class="hmc-val y">+18.2%</div><div class="hmc-trend" style="color:var(--accent);"> All-time high</div></div>
+ <div class="hmc"><div class="hmc-icon">🏦</div><div class="hmc-lbl">FD Rate (max)</div><div class="hmc-val y">8.05%</div><div class="hmc-trend" style="color:var(--muted);">Small Finance Banks</div></div>
+ <div class="hmc"><div class="hmc-icon">🛡️</div><div class="hmc-lbl">SIP Investors</div><div class="hmc-val g">9.2 Cr+</div><div class="hmc-trend" style="color:var(--green);"> Pan India</div></div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- STATS BAR -->
+
+<div class="stats-bar">
+ <div class="stats-grid">
+ <div class="stat-item"><span class="stat-icon"></span><div class="stat-num">500+</div><div class="stat-lbl">Satisfied Clients</div></div>
+ <div class="stat-item"><span class="stat-icon"></span><div class="stat-num">₹50Cr+</div><div class="stat-lbl">Assets Under Management</div></div>
+ <div class="stat-item"><span class="stat-icon"></span><div class="stat-num">10+</div><div class="stat-lbl">Years in Business</div></div>
+ <div class="stat-item"><span class="stat-icon"></span><div class="stat-num">6+</div><div class="stat-lbl">Product Categories</div></div>
+ </div>
+</div>
+
+<!-- ABOUT -->
+
+<section id="about" style="background:var(--bg);">
+ <div class="section-inner">
+ <div class="about-grid">
+ <div class="about-media">
+ <div class="about-video-wrap" style="height:auto;padding:0;background:none;box-shadow:none;border-radius:0;">
+  <div class="about-info-card">
+    <!-- Header -->
+    <div class="aic-header">
+      <div class="aic-logo-box">FW</div>
+      <div>
+        <div class="aic-brand">Future Wealth</div>
+        <div class="aic-tagline">Building Future… Today</div>
+      </div>
+      <div class="aic-since">Since<br><span>2014</span></div>
+    </div>
+    <!-- Mission -->
+    <div class="aic-mission">
+      "Empowering individuals & families to achieve financial independence through disciplined, transparent and result-driven investing."
+    </div>
+    <!-- Stats row -->
+    <div class="aic-stats">
+      <div class="aic-stat"><div class="aic-stat-num">500+</div><div class="aic-stat-lbl">Clients</div></div>
+      <div class="aic-stat-div"></div>
+      <div class="aic-stat"><div class="aic-stat-num">₹50Cr+</div><div class="aic-stat-lbl">AUM</div></div>
+      <div class="aic-stat-div"></div>
+      <div class="aic-stat"><div class="aic-stat-num">17+</div><div class="aic-stat-lbl">Yrs Exp.</div></div>
+      <div class="aic-stat-div"></div>
+      <div class="aic-stat"><div class="aic-stat-num">6+</div><div class="aic-stat-lbl">Products</div></div>
+    </div>
+    <!-- Services offered -->
+    <div class="aic-services">
+      <div class="aic-svc-title">What We Offer</div>
+      <div class="aic-svc-grid">
+        <div class="aic-svc-item"><span>📊</span> Mutual Funds</div>
+        <div class="aic-svc-item"><span>📈</span> SIP Investment</div>
+        <div class="aic-svc-item"><span>🛡️</span> Insurance</div>
+        <div class="aic-svc-item"><span>📋</span> Tax Planning</div>
+        <div class="aic-svc-item"><span>🏦</span> Debt & Bonds</div>
+        <div class="aic-svc-item"><span>🌐</span> NRI Services</div>
+      </div>
+    </div>
+    <!-- Clients we serve -->
+    <div class="aic-clients">
+      <div class="aic-svc-title">Clients We Serve</div>
+      <div class="aic-client-chips">
+        <span class="aic-chip">🏢 Corporate</span>
+        <span class="aic-chip">🌍 NRI</span>
+        <span class="aic-chip">💎 HNI</span>
+        <span class="aic-chip">👤 Retail</span>
+      </div>
+    </div>
+    <!-- Footer line -->
+    <div class="aic-footer">
+      <span class="aic-reg">ARN-98691 · AMFI Registered</span>
+      <span class="aic-location">📍 Ahmedabad, Gujarat</span>
+    </div>
+  </div>
+ </div>
+ <div class="about-float">Est. 2014<span class="af-small">Ahmedabad, Gujarat</span></div>
+ <div class="trust-row">
+ <div class="trust-chip">&#10003; AMFI Certified</div>
+ <div class="trust-chip">&#10003; NISM Qualified</div>
+ <div class="trust-chip">&#10003; ARN-98691</div>
+ </div>
+ </div>
+ <div class="about-content">
+ <div class="section-header">
+ <div class="eyebrow">◈ About Us</div>
+ <h2 class="section-title">Building Future… Today!</h2>
+ <div class="section-line"></div>
+ </div>
+ <p>Future Wealth was incorporated in <strong style="color:#fff;">2014</strong> with the objective to provide customized financial distributor services to Corporate, NRI, HNI, and Retail clients across India.</p>
+ <p>Our core expertise lies in <strong style="color:#fff;">Mutual Funds</strong>, complemented by an all-inclusive range of capital products — from Insurance and Govt. Bonds to Fixed Deposits, Structured Products and Tax Saving Plans.</p>
+ <p>We combine years of field experience with modern financial strategies to deliver transparent, result-driven solutions that help clients grow confidently.</p>
+ <div class="highlight-grid">
+ <div class="hi"><div class="hi-icon">📊</div><div><div class="hi-t">Mutual Funds</div><div class="hi-s">1000+ schemes</div></div></div>
+ <div class="hi"><div class="hi-icon">🛡️</div><div><div class="hi-t">Insurance</div><div class="hi-s">Life, Health & General</div></div></div>
+ <div class="hi"><div class="hi-icon">🏢️</div><div><div class="hi-t">Govt. Bonds & FDs</div><div class="hi-s">Safe & stable returns</div></div></div>
+ <div class="hi"><div class="hi-icon">📋</div><div><div class="hi-t">Tax Planning</div><div class="hi-s">80C, 80D & ELSS</div></div></div>
+ </div>
+ <div class="about-reg">
+ <strong>Regulatory Information</strong>
+ Date of Registration: <span>21/11/2014</span> &nbsp;|&nbsp; AMFI Registration Number: <span>ARN-98691</span> &nbsp;|&nbsp; Current Validity of ARN: <span>18/01/2026</span>
+ </div>
+ <div class="amfi-badge">&#10003; AMFI Registered Mutual Fund Distributor</div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- SERVICES -->
+
+<section id="services" class="services-section">
+ <div class="section-inner">
+ <div class="section-header">
+ <div class="eyebrow">◈ What We Offer</div>
+ <h2 class="section-title">Our Services</h2>
+ <div class="section-line"></div>
+ <p class="section-sub">Comprehensive financial solutions tailored to your goals and risk appetite</p>
+ </div>
+ <div class="services-grid">
+ <div class="svc-card">
+ <div class="svc-img c1"><div class="svc-badge">📊</div></div>
+ <div class="svc-body"><div class="svc-title">Build Your Portfolio</div><div class="svc-desc">We help build and manage a diversified portfolio across equity, debt and hybrid instruments aligned with your financial goals and risk appetite.</div><a href="https://www.futurewealth.co.in/detail/214461/build-your-portfolio" target="_blank" class="svc-link">Explore </a></div>
+ </div>
+ <div class="svc-card">
+ <div class="svc-img c2"><div class="svc-badge">💰</div></div>
+ <div class="svc-body"><div class="svc-title">Mutual Funds</div><div class="svc-desc">1000+ schemes across equity, debt, hybrid and thematic funds managed by professional investment managers. Diversified. Transparent. Sahi Hai.</div><a href="https://www.futurewealth.co.in/detail/200853/mutual-funds" target="_blank" class="svc-link">Explore </a></div>
+ </div>
+ <div class="svc-card">
+ <div class="svc-img c3"><div class="svc-badge">🏦</div></div>
+ <div class="svc-body"><div class="svc-title">Debt Investment</div><div class="svc-desc">Govt. Bonds, PSU Bonds, FDs and Debt Mutual Funds offering stable, predictable returns with capital safety for the conservative investor.</div><a href="https://www.futurewealth.co.in/detail/591440/debt-investment" target="_blank" class="svc-link">Explore </a></div>
+ </div>
+ <div class="svc-card">
+ <div class="svc-img c4"><div class="svc-badge">📋</div></div>
+ <div class="svc-body"><div class="svc-title">Tax Planning</div><div class="svc-desc">Strategic tax planning under Sec 80C, 80D, 80CCD and more. ELSS funds, NPS, Insurance — legally minimize your tax liability and maximize savings.</div><a href="https://www.futurewealth.co.in/detail/308000/tax-planning" target="_blank" class="svc-link">Explore </a></div>
+ </div>
+ <div class="svc-card">
+ <div class="svc-img c5"><div class="svc-badge">📈</div></div>
+ <div class="svc-body"><div class="svc-title">SIP Investments</div><div class="svc-desc">Invest as little as ₹500/month systematically. Benefit from rupee cost averaging and compounding to build substantial long-term wealth.</div><a href="https://www.futurewealth.co.in/detail/672805/sip" target="_blank" class="svc-link">Explore </a></div>
+ </div>
+ <div class="svc-card">
+ <div class="svc-img c6"><div class="svc-badge">🛡️</div></div>
+ <div class="svc-body"><div class="svc-title">Insurance</div><div class="svc-desc">Protect your life, health and assets. Term plans, health insurance and ULIPs curated to give you the right coverage at the right premium.</div><a href="https://www.futurewealth.co.in/detail/527227/insurance" target="_blank" class="svc-link">Explore </a></div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- TOOLS -->
+
+<section id="tools" style="background:var(--bg);">
+ <div class="section-inner">
+ <div class="section-header">
+ <div class="eyebrow">◈ Quick Access</div>
+ <h2 class="section-title">Live Links & Tools</h2>
+ <div class="section-line"></div>
+ <p class="section-sub">Portfolio, KYC, bonds, tax — everything you need in one place</p>
+ </div>
+ <div class="tools-grid">
+ <a href="https://www.ccilindia.com/OMHome.aspx" target="_blank" class="tool-card">
+ <div class="tool-img t1">📊</div>
+ <div class="tool-body"><div class="tool-icon-row"><div class="tool-box y">📊</div><div class="tool-title y">Live G-Sec Prices</div></div><div class="tool-desc">Track latest government securities and bond yields in real-time via CCIL India.</div><div class="tool-arrow">Visit Portal </div></div>
+ </a>
+ <a href="https://www.futurewealth.co.in/detail/195180/kyc-status" target="_blank" class="tool-card">
+ <div class="tool-img t2">🆔</div>
+ <div class="tool-body"><div class="tool-icon-row"><div class="tool-box g">🆔</div><div class="tool-title g">Check KYC Status</div></div><div class="tool-desc">Verify and manage your KYC compliance online for seamless, hassle-free investing.</div><div class="tool-arrow">Check Now </div></div>
+ </a>
+ <a href="https://futurewealth.my-portfolio.in/login.aspx" target="_blank" class="tool-card">
+ <div class="tool-img t3">💼</div>
+ <div class="tool-body"><div class="tool-icon-row"><div class="tool-box b">💼</div><div class="tool-title b">Client Desk</div></div><div class="tool-desc">Access your portfolio, transaction reports and investment dashboard all in one place.</div><div class="tool-arrow">Login </div></div>
+ </a>
+ <a href="https://www.futurewealth.co.in/detail/504620/nri-desk-" target="_blank" class="tool-card">
+ <div class="tool-img t4">🌐</div>
+ <div class="tool-body"><div class="tool-icon-row"><div class="tool-box y">🌐</div><div class="tool-title y">NRI Desk</div></div><div class="tool-desc">Dedicated investment services and NRE/NRO account guidance for Non-Resident Indians.</div><div class="tool-arrow">Learn More </div></div>
+ </a>
+ <a href="https://www.futurewealth.co.in/detail/606078/tax-corner-" target="_blank" class="tool-card">
+ <div class="tool-img t5">🧾</div>
+ <div class="tool-body"><div class="tool-icon-row"><div class="tool-box g">🧾</div><div class="tool-title g">TAX Corner</div></div><div class="tool-desc">Stay updated on tax laws, deductions and opportunities to save more this financial year.</div><div class="tool-arrow">Explore </div></div>
+ </a>
+ <a href="https://www.futurewealth.co.in/detail/137542/online-purchase" target="_blank" class="tool-card">
+ <div class="tool-img t6">🛒</div>
+ <div class="tool-body"><div class="tool-icon-row"><div class="tool-box b">🛒</div><div class="tool-title b">Online Purchase</div></div><div class="tool-desc">Invest in mutual funds and other financial products conveniently and securely online.</div><div class="tool-arrow">Invest Now </div></div>
+ </a>
+ </div>
+ </div>
+</section>
+
+<!-- SIP CALCULATOR -->
+
+<section class="calc-section" id="calculator">
+ <div class="section-inner">
+ <div class="section-header">
+ <div class="eyebrow">◈ Plan Your Wealth</div>
+ <h2 class="section-title">SIP Returns Calculator</h2>
+ <div class="section-line"></div>
+ <p class="section-sub">Estimate your mutual fund SIP returns in seconds</p>
+ </div>
+ <div class="calc-grid">
+ <div>
+ <div class="calc-card">
+ <div class="calc-field"><div class="calc-lbl"><span>Monthly Investment</span><span class="cv" id="sipAmtLabel">₹5,000</span></div><input type="range" id="sipAmt" min="500" max="100000" step="500" value="5000"></div>
+ <div class="calc-field"><div class="calc-lbl"><span>Expected Annual Return</span><span class="cv" id="sipRetLabel">12%</span></div><input type="range" id="sipRet" min="1" max="30" step="0.5" value="12"></div>
+ <div class="calc-field"><div class="calc-lbl"><span>Investment Period</span><span class="cv" id="sipYrsLabel">10 Years</span></div><input type="range" id="sipYrs" min="1" max="40" step="1" value="10"></div>
+ </div>
+ <div class="calc-result">
+ <div class="cr-row"><span class="cr-lbl">Invested Amount</span><span class="cr-val" id="invested">₹6,00,000</span></div>
+ <div class="cr-row"><span class="cr-lbl">Estimated Returns</span><span class="cr-val" style="color:var(--green);" id="returns">₹5,65,022</span></div>
+ <div class="cr-total"><span class="cr-lbl">Total Value</span><span class="cr-val" id="total">₹11,65,022</span></div>
+ <p class="calc-note">📌 Estimates based on historical averages. Actual returns may vary. Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.</p>
+ </div>
+ </div>
+ <div>
+ <div class="donut-area">
+ <div class="donut-chart">
+ <svg width="190" height="190" viewBox="0 0 190 190">
+ <circle cx="95" cy="95" r="70" fill="none" stroke="var(--border)" stroke-width="26"/>
+ <circle id="donutI" cx="95" cy="95" r="70" fill="none" stroke="var(--accent)" stroke-width="26" stroke-dasharray="440" stroke-dashoffset="0" stroke-linecap="round"/>
+ <circle id="donutR" cx="95" cy="95" r="70" fill="none" stroke="var(--green)" stroke-width="26" stroke-dasharray="440" stroke-dashoffset="220" stroke-linecap="round"/>
+ </svg>
+ <div class="donut-center"><div class="dc-pct" id="donutPct">49%</div><div class="dc-lbl">Returns</div></div>
+ </div>
+ <div class="donut-legend"><div class="dl"><div class="dl-dot" style="background:var(--accent);"></div>Invested</div><div class="dl"><div class="dl-dot" style="background:var(--green);"></div>Returns</div></div>
+ </div>
+ <div class="sip-reasons">
+ <div class="sir"><div class="sir-icon">⚡</div><div><div class="sir-t">Rupee Cost Averaging</div><div class="sir-d">Buy more units when markets fall, fewer when markets rise — automatically averaging your cost.</div></div></div>
+ <div class="sir"><div class="sir-icon">📈</div><div><div class="sir-t">Power of Compounding</div><div class="sir-d">Your returns earn returns. Start early — every year of delay costs significantly over time.</div></div></div>
+ <div class="sir"><div class="sir-icon">🔒</div><div><div class="sir-t">Disciplined Investing</div><div class="sir-d">Automate investments, remove emotion from decisions and build wealth consistently.</div></div></div>
+ <div class="sir"><div class="sir-icon">💎</div><div><div class="sir-t">Start with ₹500/month</div><div class="sir-d">No large lump sum needed. Small, regular investments create life-changing long-term wealth.</div></div></div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- NEWS -->
+
+<section id="news" style="background:var(--bg);border-top:1px solid var(--border);">
+ <div class="section-inner">
+ <div class="section-header">
+ <div class="eyebrow">◈ Stay Informed</div>
+ <h2 class="section-title">Market News & Updates</h2>
+ <div class="section-line"></div>
+ </div>
+ <div class="news-grid">
+ <div class="news-feat">
+ <div class="news-feat-img" style="background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);display:flex;align-items:center;justify-content:center;font-size:4rem;">📈<div class="nf-fade"></div></div>
+ <div class="news-body">
+ <div class="news-tag">🔥 Featured · Market Update</div>
+ <div class="news-ttl lg">Sensex Crosses 74,000 — What It Means for Your Mutual Fund Portfolio</div>
+ <div class="news-desc">Markets continue their bullish trajectory with FII inflows accelerating. Here's how to position your portfolio for the next phase of the bull run and which sectors to watch in 2024.</div>
+ <div class="news-meta"><span>Apr 2024</span><span>4 min read</span><span>Equity Markets</span></div>
+ </div>
+ </div>
+ <div class="news-sidebar">
+ <div class="news-sm">
+ <div style="width:95px;height:100%;background:linear-gradient(135deg,#0a2342,#126872);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">📊</div>
+ <div class="news-sm-body"><div class="news-tag" style="font-size:0.64rem;">SIP</div><div class="news-ttl">SIP Inflows Cross ₹20,000 Cr Monthly Milestone for First Time</div><div class="news-meta" style="font-size:0.68rem;margin-top:5px;"><span>Mar 2024</span></div></div>
+ </div>
+ <div class="news-sm">
+ <div style="width:95px;height:100%;background:linear-gradient(135deg,#1a1a2e,#393e6f);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">📋</div>
+ <div class="news-sm-body"><div class="news-tag" style="font-size:0.64rem;">Tax</div><div class="news-ttl">New Tax Regime vs Old: Which Is Better for Investors in FY25?</div><div class="news-meta" style="font-size:0.68rem;margin-top:5px;"><span>Feb 2024</span></div></div>
+ </div>
+ <div class="news-sm">
+ <div style="width:95px;height:100%;background:linear-gradient(135deg,#1c0a2e,#4a2080);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🏢</div>
+ <div class="news-sm-body"><div class="news-tag" style="font-size:0.64rem;">Policy</div><div class="news-ttl">RBI Holds Repo Rate — Impact on Debt Funds Explained</div><div class="news-meta" style="font-size:0.68rem;margin-top:5px;"><span>Apr 2024</span></div></div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- VISION -->
+
+<section class="vision-section">
+ <div class="section-inner">
+ <div class="vision-grid">
+ <div class="founder-card">
+ <div class="founder-glow"></div>
+ <div class="founder-av-wrap">
+ <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMTI4IDEyOCI+CiAgPHJlY3Qgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiIHJ4PSI2NCIgZmlsbD0iI0ZDRDUzNSIvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgCiAgICBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iNDIiIGZpbGw9IiMwMDAwMDAiPkZXPC90ZXh0Pgo8L3N2Zz4=" class="founder-av" alt="Founder">
+ <div class="founder-check">&#10003;</div>
+ </div>
+ <div class="founder-name">Future Wealth Leadership</div>
+ <div class="founder-role">Founder & Managing Director</div>
+ <div class="founder-exp">17+ Years in Financial Advisory & Wealth Management</div>
+ <div class="founder-badges"><span class="fb">AMFI Certified</span><span class="fb">NISM Qualified</span><span class="fb">CFP</span><span class="fb">Ahmedabad</span></div>
+ <div class="founder-socials">
+ <a href="#" class="fsoc"></a>
+ <a href="#" class="fsoc"></a>
+ <a href="https://wa.me/919898348976" target="_blank" class="fsoc"></a>
+ <a href="/cdn-cgi/l/email-protection#a1c8cfc7cee1c7d4d5d4d3c4d6c4c0cdd5c98fc2ce8fc8cf" class="fsoc"></a>
+ </div>
+ </div>
+ <div class="vision-content">
+ <div class="section-header" style="margin-bottom:1.5rem;">
+ <div class="eyebrow">◈ Our Vision</div>
+ <h2 class="section-title">Founder's Vision</h2>
+ <div class="section-line"></div>
+ </div>
+ <p style="color:#9CA3AF;line-height:1.85;font-size:0.9rem;">At Future Wealth, we believe that <strong style="color:#fff;">financial independence is not a privilege — it's a right</strong>. Our mission is to make disciplined, informed investing accessible to every individual and family, regardless of their starting point.</p>
+ <div class="vision-quote">"We combine years of experience with modern financial strategies to deliver transparent, result-driven solutions. Every client's goal is unique — and so is our approach. Your wealth journey deserves personalized attention, not a generic plan."</div>
+ <div class="vision-author">Future Wealth, Ahmedabad</div>
+ <div class="vision-stats">
+ <div class="vs"><div class="vs-num" style="color:var(--accent);">500+</div><div class="vs-lbl">Clients</div></div>
+ <div class="vs"><div class="vs-num" style="color:var(--green);">₹50Cr+</div><div class="vs-lbl">AUM</div></div>
+ <div class="vs"><div class="vs-num" style="color:#60A5FA;">10+</div><div class="vs-lbl">Years</div></div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section style="background:var(--bg);border-top:1px solid var(--border);">
+ <div class="section-inner">
+ <div class="section-header">
+ <div class="eyebrow">◈ Client Stories</div>
+ <h2 class="section-title">Why Clients Choose Us</h2>
+ <div class="section-line"></div>
+ <p class="section-sub">Real stories from clients who trusted Future Wealth for their financial journey</p>
+ </div>
+ <div class="testi-grid">
+ <div class="testi-card">
+ <div class="testi-header">
+ <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDUwIDUwIj4KICA8cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHJ4PSIyNSIgZmlsbD0iIzJCMzEzOSIvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgCiAgICBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNGQ0Q1MzUiPlJTPC90ZXh0Pgo8L3N2Zz4=" class="testi-av" alt="Rahul">
+ <div><div class="testi-name">Rahul Sharma</div><div class="testi-role">Software Engineer, Ahmedabad</div><div class="testi-stars">★★★★★</div></div>
+ </div>
+ <p class="testi-text">"Future Wealth transformed my approach to investing. Their guidance is clear, practical, and results-driven. My SIP portfolio has grown consistently over 3 years and I can see a clear path to my financial goals."</p>
+ <div class="testi-tag">&#10003; SIP Investor · 3 Years</div>
+ </div>
+ <div class="testi-card">
+ <div class="testi-header">
+ <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDUwIDUwIj4KICA8cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHJ4PSIyNSIgZmlsbD0iIzJCMzEzOSIvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgCiAgICBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNGQ0Q1MzUiPk5WPC90ZXh0Pgo8L3N2Zz4=" class="testi-av" alt="Neha">
+ <div><div class="testi-name">Neha Verma</div><div class="testi-role">Business Owner, Surat</div><div class="testi-stars">★★★★★</div></div>
+ </div>
+ <p class="testi-text">"The team is highly professional and always available. Their tax planning advice alone saved me over ₹1.5L this year. Their strategies are well-researched and aligned perfectly with my financial goals."</p>
+ <div class="testi-tag">&#10003; Tax Planning · Portfolio</div>
+ </div>
+ <div class="testi-card">
+ <div class="testi-header">
+ <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDUwIDUwIj4KICA8cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHJ4PSIyNSIgZmlsbD0iIzJCMzEzOSIvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgCiAgICBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNGQ0Q1MzUiPkFLPC90ZXh0Pgo8L3N2Zz4=" class="testi-av" alt="Amit">
+ <div><div class="testi-name">Amit Kapoor</div><div class="testi-role">NRI Client, Dubai</div><div class="testi-stars">★★★★★</div></div>
+ </div>
+ <p class="testi-text">"As an NRI, managing investments back home was always complex. Future Wealth's NRI Desk made it seamless — from NRE account guidance to repatriation. Highly recommend their expert team."</p>
+ <div class="testi-tag">&#10003; NRI Services · 4 Years</div>
+ </div>
+ <div class="testi-card">
+ <div class="testi-header">
+ <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDUwIDUwIj4KICA8cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHJ4PSIyNSIgZmlsbD0iIzJCMzEzOSIvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgCiAgICBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNGQ0Q1MzUiPlBNPC90ZXh0Pgo8L3N2Zz4=" class="testi-av" alt="Priya">
+ <div><div class="testi-name">Priya Mehta</div><div class="testi-role">Doctor, Vadodara</div><div class="testi-stars">★★★★★</div></div>
+ </div>
+ <p class="testi-text">"Reliable, transparent and highly knowledgeable. They helped me plan for retirement, children's education and insurance — all under one roof. Future Wealth is a true financial partner for life."</p>
+ <div class="testi-tag">&#10003; HNI Client · 5 Years</div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact-section">
+ <div class="section-inner">
+ <div class="section-header">
+ <div class="eyebrow">◈ Get In Touch</div>
+ <h2 class="section-title">Contact Us</h2>
+ <div class="section-line"></div>
+ <p class="section-sub">Book a free consultation or reach out with any query — we're here to help</p>
+ </div>
+ <div class="contact-grid">
+ <div>
+ <div class="ci"><div class="ci-icon">📍</div><div class="contact-detail"><div class="ci-lbl">Office Address</div><div class="ci-val">B-507 Stellar Work Space, Opp Arista,<br>Sindhu Bhavan Road, Bodakdev,<br>Ahmedabad – 380059, Gujarat</div></div></div>
+ <div class="ci"><div class="ci-icon">✉️</div><div class="contact-detail"><div class="ci-lbl">Email</div><div class="ci-val"><a href="/cdn-cgi/l/email-protection#3e575058517e584b4a4b4c5b495b5f524a56105d51105750"><span class="__cf_email__" data-cfemail="771e191118371102030205120012161b031f591418591e19">[email&#160;protected]</span></a></div></div></div>
+ <div class="ci"><div class="ci-icon">📞</div><div class="contact-detail"><div class="ci-lbl">Phone / WhatsApp</div><div class="ci-val"><a href="tel:+919898348976">+91 98983 48976</a><br><a href="tel:+917572812888">+91 75728 12888</a></div></div></div>
+ <div class="ci"><div class="ci-icon">🕐</div><div class="contact-detail"><div class="ci-lbl">Business Hours</div><div class="ci-val">Mon – Sat: 9:30 AM – 6:30 PM<br><span style="color:var(--muted);font-size:0.8rem;">Sunday: Closed</span></div></div></div>
+ <div class="office-card">
+  <div class="office-card-header">
+    <div class="office-map-pin">📍</div>
+    <div>
+      <div class="office-card-title">Our Office</div>
+      <div class="office-card-sub">Bodakdev, Ahmedabad</div>
+    </div>
+    <a href="https://maps.google.com/?q=Sindhu+Bhavan+Road+Bodakdev+Ahmedabad" target="_blank" class="office-directions-btn">Get Directions →</a>
+  </div>
+  <div class="office-details-grid">
+    <div class="office-detail-item">
+      <div class="odi-label">Landmark</div>
+      <div class="odi-value">Opp. Arista, Sindhu Bhavan Road</div>
+    </div>
+    <div class="office-detail-item">
+      <div class="odi-label">Building</div>
+      <div class="odi-value">Stellar Work Space, B-507</div>
+    </div>
+    <div class="office-detail-item">
+      <div class="odi-label">City / PIN</div>
+      <div class="odi-value">Ahmedabad – 380059</div>
+    </div>
+    <div class="office-detail-item">
+      <div class="odi-label">State</div>
+      <div class="odi-value">Gujarat, India</div>
+    </div>
+  </div>
+  <div class="office-nearby">
+    <div class="onb-title">Nearby Landmarks</div>
+    <div class="onb-chips">
+      <span class="onb-chip">🏢 Arista Business Hub</span>
+      <span class="onb-chip">🛣️ Sindhu Bhavan Rd</span>
+      <span class="onb-chip">🏘️ Bodakdev</span>
+      <span class="onb-chip">🚇 Near SG Highway</span>
+    </div>
+  </div>
+ </div>
+ <div style="margin-top:1.5rem;">
+ <p style="color:var(--muted);font-size:0.76rem;margin-bottom:0.75rem;">📲 Download Our Mobile App</p>
+ <div class="app-btns">
+ <a href="https://play.google.com/store/apps/details?id=com.iw.mint.app" target="_blank" class="app-btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 512 512" fill="currentColor"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l232.6-232.6L47 0zm425.6 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c17.1-9.8 17.1-35.5 0-45.3l-1.2-.5zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg><div><span class="ab-small">Get it on</span><span class="ab-big">Google Play</span></div></a>
+ <a href="https://apps.apple.com/in/app/mint-by-investwell/id1479042500" target="_blank" class="app-btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 814 1000" fill="currentColor"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105-36.8-162.2-105.3C66.3 754.4 0 633.6 0 519.3c0-186.4 121.5-284.8 241.5-284.8 63.9 0 117.1 42.3 156.6 42.3 37.7 0 97.1-45 166.1-45 26.2 0 108.2 2.6 168.9 74.9zm-319.5-258.5c30.1-37.4 51.9-89.2 51.9-140.9 0-7.1-.6-14.3-1.9-20.7-48.6 1.9-107.4 33.7-143 71.3-27.5 30.1-52.6 81.9-52.6 134.3 0 7.7 1.3 15.5 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 43.5 0 97.1-29.4 130.1-63.4z"/></svg><div><span class="ab-small">Download on the</span><span class="ab-big">App Store</span></div></a>
+ </div>
+ </div>
+ </div>
+ <div class="contact-form">
+ <div class="cf-title">Send Us a Message</div>
+ <div class="cf-sub">ℹ We respond within 24 business hours</div>
+ <div class="form-row">
+ <div class="fg"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
+ <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+ </div>
+ <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+ <div class="fg"><label>Interested In</label>
+ <select><option value="">Select a service...</option><option>Mutual Funds / SIP</option><option>Portfolio Management</option><option>Tax Planning (80C / ELSS)</option><option>Insurance (Life / Health)</option><option>Debt Investment / Bonds</option><option>NRI Services</option><option>Fixed Deposits</option><option>General Query</option></select>
+ </div>
+ <div class="fg"><label>Message</label><textarea placeholder="Tell us about your financial goals, investment horizon, or any specific queries..."></textarea></div>
+ <button class="btn-primary" style="width:100%;padding:0.88rem;font-size:0.92rem;justify-content:center;">&nbsp;Send Message</button>
+ <p style="font-size:0.7rem;color:var(--muted);text-align:center;margin-top:1rem;">&nbsp;Your information is safe with us. We never share your data.</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- CTA -->
+
+<section class="cta-section">
+ <div class="cta-inner">
+ <div class="eyebrow" style="display:inline-flex;margin-bottom:1rem;">Start Today</div>
+ <h2 class="cta-title">Ready to Start Your<br><span style="color:var(--accent);">Wealth Journey?</span></h2>
+ <p class="cta-sub">Join 500+ clients who trust Future Wealth. Book a free consultation today — no obligations.</p>
+ <div class="cta-btns">
+ <a href="https://futurewealth.investwell.app/app/#/login" target="_blank" class="btn-primary" style="padding:0.82rem 1.9rem;font-size:0.95rem;">Client Login</a>
+ <a href="#contact" class="btn-outline" style="padding:0.82rem 1.9rem;font-size:0.95rem;">Book Free Consultation</a>
+ <a href="https://wa.me/919898348976" target="_blank" class="btn-outline" style="padding:0.82rem 1.9rem;font-size:0.95rem;color:#25D366;border-color:#25D366;">💬 WhatsApp Us</a>
+ </div>
+ </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+ <div class="footer-inner">
+ <div class="footer-brand">
+ <a href="#" class="nav-logo" style="text-decoration:none;margin-bottom:0.5rem;display:inline-flex;">
+ <div class="logo-icon">FW</div><span class="logo-text">Future <span>Wealth</span></span>
+ </a>
+ <p>Trusted AMFI-registered financial distributor for Corporate, NRI, HNI & Retail clients. Specializing in Mutual Funds, Insurance, Govt. Bonds & Tax Saving Plans since 2014.</p>
+ <div class="amfi-badge">&#10003; ARN-98691 · AMFI Registered</div>
+ <div class="footer-social">
+ <a href="#" class="fsb" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+ <a href="#" class="fsb" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.733-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="#" class="fsb" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+ <a href="#" class="fsb" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://wa.me/919898348976" target="_blank" class="fsb" title="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+ </div>
+ </div>
+ <div class="footer-col">
+ <h5>Our Services</h5>
+ <ul>
+ <li><a href="#">Asset Consultive Services</a></li>
+ <li><a href="#">Build Your Portfolio</a></li>
+ <li><a href="#">Mutual Funds</a></li>
+ <li><a href="#">Debt Investment</a></li>
+ <li><a href="#">Tax Planning</a></li>
+ <li><a href="#">SIP Investments</a></li>
+ <li><a href="#">Insurance</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h5>Quick Links</h5>
+ <ul>
+ <li><a href="https://www.ccilindia.com/OMHome.aspx" target="_blank">Live G-Sec Prices</a></li>
+ <li><a href="#">Check KYC Status</a></li>
+ <li><a href="https://futurewealth.my-portfolio.in/login.aspx" target="_blank">Client Desk</a></li>
+ <li><a href="#">NRI Desk</a></li>
+ <li><a href="#">Tax Corner</a></li>
+ <li><a href="#">Online Purchase</a></li>
+ <li><a href="#">Privacy Policy</a></li>
+ </ul>
+ </div>
+ <div class="footer-col footer-contact">
+ <h5>Contact Information</h5>
+ <div class="fi"><span style="font-size:1.1rem;flex-shrink:0;">📍</span><span>B-507 Stellar Work Space, Opp Arista, Sindhu Bhavan Road, Bodakdev, Ahmedabad – 380059</span></div>
+ <div class="fi"><span style="font-size:1.1rem;flex-shrink:0;">✉️</span><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="432a2d252c032536373631263426222f372b6d202c6d2a2d">[email&#160;protected]</a></span></div>
+ <div class="fi"><span style="font-size:1.1rem;flex-shrink:0;">📞</span><span>+91 98983 48976<br>+91 75728 12888</span></div>
+ <div class="fi"><span style="font-size:1.1rem;flex-shrink:0;">🕐</span><span>Mon–Sat: 9:30 AM – 6:30 PM</span></div>
+ </div>
+ </div>
+ <div class="risk-box" style="margin:0 2rem 1rem;padding:1.2rem 1.75rem;">
+ <strong>⚠ Risk Factors</strong> — Investments in Mutual Funds are subject to Market Risks. Read all scheme related documents carefully before investing. Mutual Fund Schemes do not assure or guarantee any returns. Past performances may or may not be sustained in future. We deal in Regular Plans only and earn a Trailing Commission on client investments. Direct Plans are available to investors at lower expense ratios.<br>
+ <span style="display:block;margin-top:0.5rem;color:#848E9C;">Date of registration: 21/11/2014 &nbsp;|&nbsp; AMFI Registration Number: <strong style="color:var(--accent);">ARN-98691</strong> &nbsp;|&nbsp; Current validity of ARN: 18/01/2026</span>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2026 Future Wealth Financial Services. All rights reserved.</span>
+ <span>Made with <span style="color:var(--red);">♥</span> for Financial Empowerment · Ahmedabad, India</span>
+ </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+// SIP CALCULATOR
+function fmt(n){return ‘₹’+Math.round(n).toLocaleString(‘en-IN’);}
+function calcSIP(){
+const amt=+document.getElementById(‘sipAmt’).value;
+const retPct=+document.getElementById(‘sipRet’).value;
+const ret=retPct/100/12;
+const yrs=+document.getElementById(‘sipYrs’).value;
+const n=yrs*12;
+document.getElementById(‘sipAmtLabel’).textContent=fmt(amt);
+document.getElementById(‘sipRetLabel’).textContent=retPct+’%’;
+document.getElementById(‘sipYrsLabel’).textContent=yrs+(yrs===1?’ Year’:’ Years’);
+const invested=amt*n;
+const total=amt*((Math.pow(1+ret,n)-1)/ret)*(1+ret);
+const returns=total-invested;
+document.getElementById(‘invested’).textContent=fmt(invested);
+document.getElementById(‘returns’).textContent=fmt(returns);
+document.getElementById(‘total’).textContent=fmt(total);
+// Donut
+const C=2*Math.PI*70;
+const rPct=returns/total;
+const iPct=1-rPct;
+const iEl=document.getElementById(‘donutI’);
+const rEl=document.getElementById(‘donutR’);
+iEl.style.strokeDasharray=C;
+iEl.style.strokeDashoffset=C-(iPct*C);
+rEl.style.strokeDasharray=C;
+rEl.style.strokeDashoffset=C-(rPct*C);
+rEl.
