@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futurewealth | Building Future… Today</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+```
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C96B;
+  --deep: #0A1628;
+  --deep2: #112040;
+  --teal: #0CABD3;
+  --teal-dark: #0989AB;
+  --offwhite: #F8F5EE;
+  --text: #1A1A2E;
+  --muted: #6B7280;
+  --white: #FFFFFF;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--offwhite);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--deep);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+}
+.topbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.topbar-contact {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.7);
+}
+.topbar-contact a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.topbar-contact a:hover { color: var(--gold); }
+.topbar-contact span { color: var(--gold); margin-right: 0.3rem; }
+.topbar-actions { display: flex; gap: 1rem; align-items: center; }
+.btn-login {
+  background: var(--gold);
+  color: var(--deep);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+}
+.btn-login:hover { background: var(--gold-light); transform: translateY(-1px); }
+.app-links { display: flex; gap: 0.6rem; }
+.app-badge {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 5px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.app-badge:hover { background: rgba(255,255,255,0.2); }
+
+/* ── NAV ── */
+nav {
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 30px rgba(0,0,0,0.08);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+.logo-icon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--teal), var(--deep));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+.logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--deep); line-height: 1; }
+.logo-sub { font-size: 0.65rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; }
+.nav-links { display: flex; gap: 0.25rem; list-style: none; align-items: center; }
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+.nav-links a:hover { background: var(--offwhite); color: var(--teal); }
+.nav-links .active a { color: var(--teal); }
+.nav-cta {
+  background: var(--teal) !important;
+  color: var(--white) !important;
+  border-radius: 20px !important;
+}
+.nav-cta:hover { background: var(--teal-dark) !important; transform: translateY(-1px); box-shadow: 0 4px 15px rgba(12,171,211,0.4); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 90vh;
+  background: var(--deep);
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(12,171,211,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(201,168,76,0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #0A1628 0%, #112040 50%, #0D1F3C 100%);
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-left { animation: fadeUp 0.8s ease both; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(201,168,76,0.15);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.hero-badge::before { content: '●'; font-size: 0.5rem; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero-desc {
+  color: rgba(255,255,255,0.65);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--deep);
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.5); }
+.btn-outline {
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.07); }
+.hero-right { animation: fadeUp 0.8s 0.2s ease both; }
+.hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.stat-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+}
+.stat-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(201,168,76,0.3); transform: translateY(-2px); }
+.stat-card.featured {
+  background: linear-gradient(135deg, rgba(12,171,211,0.2), rgba(12,171,211,0.05));
+  border-color: rgba(12,171,211,0.4);
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.stat-icon { font-size: 2rem; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--white); }
+.stat-label { color: rgba(255,255,255,0.5); font-size: 0.8rem; margin-top: 0.25rem; }
+.stat-card.featured .stat-num { font-size: 2.5rem; color: var(--gold); }
+
+/* ── TICKER ── */
+.ticker {
+  background: var(--teal);
+  padding: 10px 0;
+  overflow: hidden;
+}
+.ticker-wrap { display: flex; align-items: center; }
+.ticker-label {
+  background: var(--deep);
+  color: var(--white);
+  padding: 0 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.ticker-content {
+  display: flex;
+  gap: 3rem;
+  animation: ticker 40s linear infinite;
+  white-space: nowrap;
+  padding: 0 2rem;
+}
+.ticker-content a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+.ticker-content a:hover { opacity: 1; text-decoration: underline; }
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* ── SECTION BASE ── */
+section { padding: 6rem 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: var(--deep);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.section-desc { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 560px; }
+
+/* ── ABOUT ── */
+.about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.about-visual {
+  position: relative;
+}
+.about-img-box {
+  background: linear-gradient(135deg, var(--teal), var(--deep));
+  border-radius: 24px;
+  padding: 3rem;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+.about-img-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.about-since {
+  font-size: 5rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  color: rgba(255,255,255,0.1);
+  line-height: 1;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+.about-quote {
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.4;
+  position: relative;
+  z-index: 1;
+}
+.about-quote span { color: var(--gold); }
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.tag {
+  background: var(--offwhite);
+  color: var(--text);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.about-text p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+.about-text .btn-primary { display: inline-block; margin-top: 1rem; }
+
+/* ── SERVICES ── */
+.services { background: var(--offwhite); }
+.services-header { text-align: center; margin-bottom: 3.5rem; }
+.services-header .section-desc { margin: 0 auto; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.service-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+.service-card:hover::after { transform: scaleX(1); }
+.service-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+.service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--deep); }
+.service-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.2rem; }
+.service-link {
+  color: var(--teal);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.2s;
+}
+.service-link:hover { gap: 0.7rem; }
+
+/* ── DISCLAIMER BANNER ── */
+.mf-banner {
+  background: linear-gradient(135deg, var(--teal), var(--deep));
+  padding: 4rem 0;
+  text-align: center;
+}
+.mf-banner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.mf-banner h2 span { color: var(--gold); }
+.mf-banner p { color: rgba(255,255,255,0.7); font-size: 1rem; }
+
+/* ── VIDEOS ── */
+.videos { background: var(--white); }
+.videos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+.video-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  aspect-ratio: 16/9;
+}
+.video-wrap iframe { width: 100%; height: 100%; border: none; }
+
+/* ── LINKS GRID ── */
+.quick-links { background: var(--offwhite); }
+.links-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+.link-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 16px;
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.3s;
+}
+.link-card:hover { background: var(--deep); color: var(--white); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(10,22,40,0.2); }
+.link-card:hover .link-icon { background: rgba(255,255,255,0.1); }
+.link-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--offwhite);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+.link-card span { font-weight: 600; font-size: 0.9rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--deep);
+  color: rgba(255,255,255,0.7);
+  padding: 5rem 0 2rem;
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1.5fr 2fr; gap: 4rem; margin-bottom: 4rem; }
+.footer-brand .logo-text { color: var(--white); }
+.footer-brand p { margin-top: 1rem; font-size: 0.88rem; line-height: 1.7; }
+footer h4 {
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.contact-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(201,168,76,0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+.footer-contact-item p { font-size: 0.85rem; line-height: 1.5; }
+.footer-contact-item a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.footer-contact-item a:hover { color: var(--gold); }
+.footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin-bottom: 2rem; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
+.footer-disclaimer { font-size: 0.75rem; line-height: 1.6; color: rgba(255,255,255,0.4); max-width: 700px; }
+.footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.4); white-space: nowrap; }
+.footer-copy a { color: var(--teal); text-decoration: none; }
+.arn-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: var(--gold);
+  margin-top: 1rem;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-content, .about-grid, .services-grid, .footer-grid { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .stat-card.featured { grid-column: span 2; }
+  .videos-grid, .links-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .hero { min-height: auto; padding: 5rem 0; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-contact">
+      <span>✉</span><a href="mailto:raj@futurewealth.co.in">raj@futurewealth.co.in</a>
+      <span>📞</span><a href="tel:+917572812888">+91 7572812888</a>
+    </div>
+    <div class="topbar-actions">
+      <div class="app-links">
+        <a href="https://play.google.com/store/apps/details?id=com.iw.mint.app" class="app-badge">▶ Google Play</a>
+        <a href="https://apps.apple.com/in/app/mint-by-investwell/id1479042500" class="app-badge"> App Store</a>
+      </div>
+      <a href="https://futurewealth.investwell.app/app/#/login" class="btn-login">Client Login →</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">💎</div>
+      <div>
+        <div class="logo-text">Futurewealth</div>
+        <div class="logo-sub">Building Future… Today</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#links">Resources</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://futurewealth.investwell.app/app/#/login" class="nav-cta">Client Desk</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">Trusted Since 2014 · ARN-98691</div>
+      <h1>Building <em>Future</em><br>Wealth, Today</h1>
+      <p class="hero-desc">Customized financial distribution services for Corporate, NRI, HNI & Retail clients. Expert guidance across Mutual Funds, Insurance, Debt, and Tax Planning.</p>
+      <div class="hero-actions">
+        <a href="#about" class="btn-primary">Explore Services</a>
+        <a href="#contact" class="btn-outline">Talk to an Advisor</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-icon">📈</div>
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years of Expertise</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🏆</div>
+          <div class="stat-num">ARN</div>
+          <div class="stat-label">AMFI Registered</div>
+        </div>
+        <div class="stat-card featured">
+          <div class="stat-icon" style="font-size:2.5rem">💼</div>
+          <div>
+            <div class="stat-num">6 Products</div>
+            <div class="stat-label">Mutual Funds · Insurance · SIP · Debt · Tax Planning · Portfolio Building</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+
+<div class="ticker">
+  <div class="ticker-wrap">
+    <div class="ticker-label">NEWS & UPDATES</div>
+    <div class="ticker-content">
+      <a href="#">Time to Start Equity Investments (SIP/STP) – In long term equity has to perform</a>
+      <a href="#">Understanding calculated risk and its impact on investments</a>
+      <a href="#">Debt funds – a good alternative to bank, small saving deposits</a>
+      <a href="#">Is your investment strategy designed to achieve success?</a>
+      <!-- duplicate for seamless loop -->
+      <a href="#">Time to Start Equity Investments (SIP/STP) – In long term equity has to perform</a>
+      <a href="#">Understanding calculated risk and its impact on investments</a>
+      <a href="#">Debt funds – a good alternative to bank, small saving deposits</a>
+      <a href="#">Is your investment strategy designed to achieve success?</a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-img-box">
+          <div class="about-since">2014</div>
+          <div class="about-quote">
+            "Building <span>Future</span> Wealth —<br>one smart decision at a time."
+          </div>
+        </div>
+        <div class="about-tags">
+          <span class="tag">Mutual Funds</span>
+          <span class="tag">Insurance</span>
+          <span class="tag">Govt. Bonds</span>
+          <span class="tag">Fixed Deposits</span>
+          <span class="tag">Tax Planning</span>
+          <span class="tag">NRI Services</span>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Your Trusted Financial Partner</h2>
+        <p>Future Wealth was incorporated in 2014 with the objective to provide customized financial distributor services to Corporate, NRI, HNI, and Retail clients.</p>
+        <p>Our expertise lies in Mutual Funds, though we also provide an all-inclusive range of capital products — from Insurance and Government Bonds to Fixed Deposits, Structured Products, and Tax Saving Plans.</p>
+        <p>We are committed to always keeping your financial future at the center of everything we do.</p>
+        <a href="https://www.futurewealth.co.in/detail/627136/about-us" class="btn-primary">Read Our Full Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-desc">Comprehensive financial solutions tailored to help you grow, protect, and preserve your wealth at every stage of life.</p>
+    </div>
+    <div class="services-grid">
+
+```
+  <div class="service-card reveal">
+    <div class="service-icon" style="background:#EFF9FC; color: var(--teal)">📊</div>
+    <h3>Asset Consultive Services</h3>
+    <p>Strategic consultation to align your assets with long-term financial goals through expert analysis and guidance.</p>
+    <a href="https://www.futurewealth.co.in/detail/051924/asset-consultive-services" class="service-link">Explore →</a>
+  </div>
+
+  <div class="service-card reveal">
+    <div class="service-icon" style="background:#FFF8EE; color: var(--gold)">🏗️</div>
+    <h3>Build Your Portfolio</h3>
+    <p>Wealth is an abundance of resources. We help you design a portfolio that reflects your net worth goals and risk appetite.</p>
+    <a href="https://www.futurewealth.co.in/detail/214461/build-your-portfolio" class="service-link">Explore →</a>
+  </div>
+
+  <div class="service-card reveal">
+    <div class="service-icon" style="background:#F0FFF4; color: #22c55e">💰</div>
+    <h3>Mutual Funds</h3>
+    <p>A professionally managed pool of money invested across diversified assets. Grow your money intelligently.</p>
+    <a href="https://www.futurewealth.co.in/detail/200853/mutual-funds" class="service-link">Explore →</a>
+  </div>
+
+  <div class="service-card reveal">
+    <div class="service-icon" style="background:#FFF5F5; color: #ef4444">🛡️</div>
+    <h3>Insurance</h3>
+    <p>A promise of compensation for potential future losses. Protect what matters most — start early, invest systematically.</p>
+    <a href="https://www.futurewealth.co.in/detail/527227/insurance" class="service-link">Explore →</a>
+  </div>
+
+  <div class="service-card reveal">
+    <div class="service-icon" style="background:#F5F3FF; color: #8b5cf6">📋</div>
+    <h3>Debt Investment</h3>
+    <p>Core holdings in fixed-income instruments — mutual funds and ETFs focused on stability, income, and capital preservation.</p>
+    <a href="https://www.futurewealth.co.in/detail/591440/debt-investment" class="service-link">Explore →</a>
+  </div>
+
+  <div class="service-card reveal">
+    <div class="service-icon" style="background:#ECFDF5; color: #10b981">🔄</div>
+    <h3>SIP</h3>
+    <p>Invest a pre-determined amount at regular intervals (weekly or monthly). Discipline over time creates lasting wealth.</p>
+    <a href="https://www.futurewealth.co.in/detail/672805/sip" class="service-link">Explore →</a>
+  </div>
+
+  <div class="service-card reveal" style="grid-column: span 3; display: flex; align-items: center; gap: 2rem;">
+    <div class="service-icon" style="background:#FFFBEB; color: #f59e0b; width: 64px; height: 64px; font-size: 1.8rem; flex-shrink: 0;">📑</div>
+    <div>
+      <h3 style="margin-bottom: 0.4rem;">Tax Planning</h3>
+      <p style="margin-bottom: 0.8rem;">Tax planning is a vital part of your financial strategy. Efficient planning enables you to reduce your liabilities and achieve your financial goals faster.</p>
+      <a href="https://www.futurewealth.co.in/detail/308000/tax-planning" class="service-link">Learn About Tax Planning →</a>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- MF BANNER -->
+
+<div class="mf-banner">
+  <div class="container">
+    <h2>Mutual Funds <span>Sahi Hai</span> ✦</h2>
+    <p>Your dreams, come true with us — start investing today</p>
+  </div>
+</div>
+
+<!-- VIDEOS -->
+
+<section class="videos">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Learn & Grow</div>
+      <h2 class="section-title">Educational Resources</h2>
+    </div>
+    <div class="videos-grid reveal">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/j0xpKTCyoOU" allowfullscreen title="Investment Guide"></iframe>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/hXAANPFNR1o" allowfullscreen title="Mutual Funds Guide"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK LINKS -->
+
+<section class="quick-links" id="links">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Quick Access</div>
+      <h2 class="section-title">Live Links & Tools</h2>
+    </div>
+    <div class="links-grid">
+      <a href="https://www.futurewealth.co.in/detail/504620/nri-desk-" class="link-card reveal">
+        <div class="link-icon">✈️</div>
+        <span>NRI Desk</span>
+      </a>
+      <a href="https://www.futurewealth.co.in/detail/606078/tax-corner-" class="link-card reveal">
+        <div class="link-icon">₹</div>
+        <span>TAX Corner</span>
+      </a>
+      <a href="https://www.ccilindia.com/OMHome.aspx" class="link-card reveal" target="_blank">
+        <div class="link-icon">🌐</div>
+        <span>Live G-Sec Prices</span>
+      </a>
+      <a href="https://www.futurewealth.co.in/detail/195180/kyc-status" class="link-card reveal">
+        <div class="link-icon">📄</div>
+        <span>Check KYC Status</span>
+      </a>
+      <a href="https://www.futurewealth.co.in/detail/137542/online-purchase" class="link-card reveal">
+        <div class="link-icon">💳</div>
+        <span>Online Purchase</span>
+      </a>
+      <a href="https://futurewealth.my-portfolio.in/login.aspx" class="link-card reveal">
+        <div class="link-icon">👤</div>
+        <span>Client Desk</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">💎</div>
+          <div>
+            <div class="logo-text">Futurewealth</div>
+            <div class="logo-sub" style="color: var(--gold)">Building Future… Today</div>
+          </div>
+        </div>
+        <p>Our expertise lies in Mutual Funds, though we also provide an all-inclusive range of capital products — from Insurance and Govt. Bonds to Fixed Deposits, Structured Products, and Tax Saving Plans.</p>
+        <div class="arn-badge">🏆 AMFI Registered · ARN-98691</div>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="https://www.futurewealth.co.in/detail/051924/asset-consultive-services">Asset Consultive Services</a></li>
+          <li><a href="https://www.futurewealth.co.in/detail/214461/build-your-portfolio">Build Your Portfolio</a></li>
+          <li><a href="https://www.futurewealth.co.in/detail/200853/mutual-funds">Mutual Funds</a></li>
+          <li><a href="https://www.futurewealth.co.in/detail/527227/insurance">Insurance</a></li>
+          <li><a href="https://www.futurewealth.co.in/detail/591440/debt-investment">Debt Investment</a></li>
+          <li><a href="https://www.futurewealth.co.in/detail/672805/sip">SIP</a></li>
+          <li><a href="https://www.futurewealth.co.in/detail/308000/tax-planning">Tax Planning</a></li>
+          <li><a href="https://www.futurewealth.co.in/detail/810639/privacy-policy">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Information</h4>
+        <div class="footer-contact-item">
+          <div class="contact-icon">📍</div>
+          <p><a href="https://goo.gl/maps/MRc2WBp6Gsm">B-507 Stellar Work Space<br>Opp Arista, Sindhu Bhavan Road<br>Bodakdev, Ahmedabad – 380059</a></p>
+        </div>
+        <div class="footer-contact-item">
+          <div class="contact-icon">✉</div>
+          <p><a href="mailto:raj@futurewealth.co.in">raj@futurewealth.co.in</a></p>
+        </div>
+        <div class="footer-contact-item">
+          <div class="contact-icon">📞</div>
+          <p><a href="tel:+919898348976">+91 9898348976</a></p>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        <strong style="color: rgba(255,255,255,0.6)">Risk Factors –</strong> Investments in Mutual Funds are subject to Market Risks. Read all scheme related documents carefully before investing. Past performances of any Mutual Fund Scheme may or may not be sustained in future. We deal in Regular Plans only and earn a Trailing Commission on client investments. Date of registration: 21/11/2014 | AMFI Reg. No.: ARN-98691 | ARN Validity: 18/01/2026
+      </p>
+      <p class="footer-copy">
+        © Futurewealth. All rights reserved.<br>
+        Designed by <a href="https://www.pcubeweb.com">pcubeweb.com</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
